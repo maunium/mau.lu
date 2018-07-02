@@ -1,0 +1,95 @@
+tags: []
+paths:
+  /query:
+    post:
+      operationId: query
+      summary: ""
+      tags: []
+      responses:
+        '400':
+          description: ""
+          schema:
+            x-oad-type: reference
+            $ref: '#/definitions/Error'
+          x-oad-type: response
+      parameters:
+        -
+          name: body
+          in: body
+          description: ""
+          required: true
+          schema:
+            x-oad-type: reference
+            $ref: '#/definitions/Query'
+    parameters: []
+    x-oad-type: operation
+parameters: {}
+responses: {}
+definitions:
+  Error:
+    x-oad-type: object
+    type: object
+    title: ""
+    description: 'Error information'
+    properties:
+      error:
+        x-oad-type: string
+        type: string
+        title: ""
+        description: 'A simple machine-readable error message'
+        format: ""
+      error-long:
+        x-oad-type: string
+        type: string
+        title: ""
+        description: 'A human-readable explanation of the error'
+        format: ""
+  Query:
+    x-oad-type: object
+    type: object
+    title: ""
+    description: ""
+    properties:
+      action:
+        x-oad-type: string
+        type: string
+        title: ""
+        description: 'The action to run. Valid values: shorten, unshorten, google, duckduckgo'
+        format: ""
+      redirect-type:
+        x-oad-type: string
+        type: string
+        title: ""
+        description: 'The redirect type. `html` means that the short URL will lead to a HTML page that redirects the user. `http` means that the server will just return the long URL in the `Location` header.'
+        format: ""
+      short-request:
+        x-oad-type: string
+        type: string
+        title: ""
+        description: 'The requested short URL.'
+        format: ""
+      url:
+        x-oad-type: string
+        type: string
+        title: ""
+        description: 'The URL to shorten.'
+        format: ""
+info:
+  title: mau\Lu
+  version: 1.0.0
+  description: 'mau\Lu is a simple URL shortening backend that supports custom short URLs and things like creating and shortening LMGTFY links easily.'
+  termsOfService: ""
+  contact:
+    name: 'Tulir Asokan'
+    email: tulir@maunium.net
+    url: 'https://maunium.net/contact'
+  license:
+    name: GPLv3
+    url: 'https://www.gnu.org/licenses/gpl-3.0.en.html'
+host: mau.lu
+basePath: /
+schemes:
+  - https
+consumes: []
+produces: []
+swagger: '2.0'

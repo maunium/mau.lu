@@ -1,0 +1,97 @@
+.main {
+    padding-top: 5em;
+}
+
+.title {
+    font-size: 6em;
+}
+
+.input-form {
+    padding-bottom: 1.5em;
+}
+
+.html-cb {
+    padding-right: 0.5em;
+    padding-left: 0.2em;
+}
+
+.errormsg {
+    text-align: left;
+}
+
+.card-container {
+    padding-bottom: 3em;
+}
+
+.description {
+    text-align: left;
+}
+
+@media (min-width: 48em) {
+    .card-container {
+        padding: 1em 2em 3em 2em;
+    }
+
+    .description {
+        padding-right: 25%;
+        padding-left: 25%;
+    }
+}
+
+@media (min-width: 62em) {
+    .card-container {
+        padding: 1.5em 5em 3em 5em;
+    }
+
+    .input-div {
+        padding: 3em;
+    }
+}
+
+.card {
+    box-shadow: 0.3em 0.3em 0.3em #9A9A9B;
+}
+
+.url-input, .url-input:focus, .url-input:hover, .short-input, .short-input:focus, .short-input:hover {
+    border-width: 0.1em;
+    border-color: #50D367;
+    border-radius: 0.3em;
+
+    font-size: 1.5em;
+}
+
+.btn {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+@media (max-width: 33.99em) {
+    .btn {
+        padding-right: 0.2em;
+        padding-left: 0.2em;
+    }
+}
+
+.btn-shorten, .btn-shorten:focus, .btn-shorten:active {
+    color: #FFFFFF;
+    border-color: #50D367;
+    background-color: #50D367;
+}
+
+.btn-shorten:hover {
+    color: #FFFFFF;
+    border-color: #47B9D7;
+    background-color: #47B9D7;
+}
+
+.btn-other, .btn-other:focus, .btn-other:active {
+    color: #212121;
+    border-color: #50D367;
+    background-color: #FFFFFF;
+}
+
+.btn-other:hover {
+    color: #FFFFFF;
+    border-color: #47B9D7;
+    background-color: #47B9D7;
+}
