@@ -51,15 +51,15 @@ function shortenURL(act){
 }
 
 function google(){
-  submitQuery("google");
+  shortenURL("google");
 }
 
 function ddg(){
-  submitQuery("duckduckgo");
+  shortenURL("duckduckgo");
 }
 
 function shorten(){
-  submitQuery("shorten");
+  shortenURL("shorten");
 }
 
 function unshorten(){
