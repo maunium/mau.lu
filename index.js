@@ -28,12 +28,12 @@ function shortenURL(act){
     contentType: "application/json",
     dataType: "json",
     success: function(data){
-      if(data.result) {
-        $("#inputURL").val(data.short_url);
-        $("#errormsg").addClass("hidden-xs-up");
-      } else {
+      if(data.error) {
         $("#errormsg").text(data.error);
         $("#errormsg").removeClass("hidden-xs-up");
+      } else {
+        $("#inputURL").val(data.short_url);
+        $("#errormsg").addClass("hidden-xs-up");
       }
       fixFooter();
     },
@@ -74,12 +74,12 @@ function unshorten(){
     contentType: "application/json",
     dataType: "json",
     success: function(data){
-      if(data.result) {
-        $("#inputURL").val(data.url);
-        $("#errormsg").addClass("hidden-xs-up");
-      } else {
+      if(data.error) {
         $("#errormsg").text(data.error);
         $("#errormsg").removeClass("hidden-xs-up");
+      } else {
+        $("#inputURL").val(data.url);
+        $("#errormsg").addClass("hidden-xs-up");
       }
       fixFooter();
     },
