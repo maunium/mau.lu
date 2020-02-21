@@ -8,31 +8,31 @@ function fixFooter() {
   }
 }
 
-function submitQuery(act){
+function shortenURL(act){
   var redir = "http";
   if($("#html").prop('checked')){
     redir = "html";
   }
 
   var payload = {
-    "action": act,
+    "type": act,
     "url": $("#inputURL").val(),
-    "redirect-type": redir,
-    "short-request": $("#shortURL").val(),
+    "redirect": redir,
+    "short_code": $("#shortURL").val(),
   };
 
   $.ajax({
     type: "POST",
-    url: "/query/",
+    url: "/api/shorten",
     data: JSON.stringify(payload),
-    contentType: "application/json; charset=utf-8",
+    contentType: "application/json",
     dataType: "json",
     success: function(data){
       if(data.result) {
-        $("#inputURL").val(data.result);
+        $("#inputURL").val(data.short_url);
         $("#errormsg").addClass("hidden-xs-up");
       } else {
-        $("#errormsg").text(data["error-long"]);
+        $("#errormsg").text(data.error);
         $("#errormsg").removeClass("hidden-xs-up");
       }
       fixFooter();
@@ -42,7 +42,7 @@ function submitQuery(act){
         $("#errormsg").text("Error 502: Could not connect to mau\\Lu backend.");
         $("#errormsg").removeClass("hidden-xs-up");
       } else if (jqXHR.responseJSON) {
-        $("#errormsg").text(jqXHR.responseJSON["error-long"]);
+        $("#errormsg").text(jqXHR.responseJSON.error);
         $("#errormsg").removeClass("hidden-xs-up");
       }
       fixFooter();
@@ -63,5 +63,35 @@ function shorten(){
 }
 
 function unshorten(){
-  submitQuery("unshorten");
+  var payload = {
+    "url": $("#inputURL").val(),
+  };
+
+  $.ajax({
+    type: "POST",
+    url: "/api/unshorten",
+    data: JSON.stringify(payload),
+    contentType: "application/json",
+    dataType: "json",
+    success: function(data){
+      if(data.result) {
+        $("#inputURL").val(data.url);
+        $("#errormsg").addClass("hidden-xs-up");
+      } else {
+        $("#errormsg").text(data.error);
+        $("#errormsg").removeClass("hidden-xs-up");
+      }
+      fixFooter();
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      if(jqXHR.status == 502) {
+        $("#errormsg").text("Error 502: Could not connect to mau\\Lu backend.");
+        $("#errormsg").removeClass("hidden-xs-up");
+      } else if (jqXHR.responseJSON) {
+        $("#errormsg").text(jqXHR.responseJSON.error);
+        $("#errormsg").removeClass("hidden-xs-up");
+      }
+      fixFooter();
+    }
+  });
 }
