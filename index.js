@@ -1,13 +1,3 @@
-function fixFooter() {
-  var docHeight = $(window).height();
-  var footerHeight = $('.footer').height();
-  var footerTop = $('.footer').position().top + footerHeight;
-
-  if (footerTop < docHeight) {
-    $('.footer').css('margin-top', (docHeight - footerTop) + 'px');
-  }
-}
-
 function shortenURL(act){
   var redir = "http";
   if($("#html").prop('checked')){
@@ -35,7 +25,6 @@ function shortenURL(act){
         $("#inputURL").val(data.short_url);
         $("#errormsg").addClass("hidden-xs-up");
       }
-      fixFooter();
     },
     error: function(jqXHR, textStatus, errorThrown) {
       if(jqXHR.status == 502) {
@@ -45,7 +34,6 @@ function shortenURL(act){
         $("#errormsg").text(jqXHR.responseJSON.error);
         $("#errormsg").removeClass("hidden-xs-up");
       }
-      fixFooter();
     }
   });
 }
@@ -81,7 +69,6 @@ function unshorten(){
         $("#inputURL").val(data.url);
         $("#errormsg").addClass("hidden-xs-up");
       }
-      fixFooter();
     },
     error: function(jqXHR, textStatus, errorThrown) {
       if(jqXHR.status == 502) {
@@ -91,7 +78,6 @@ function unshorten(){
         $("#errormsg").text(jqXHR.responseJSON.error);
         $("#errormsg").removeClass("hidden-xs-up");
       }
-      fixFooter();
     }
   });
 }

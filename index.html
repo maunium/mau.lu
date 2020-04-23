@@ -5,47 +5,76 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
   <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://maunium.net/css/footer.css">
   <link rel="stylesheet" href="https://maunium.net/css/text.css">
   <link rel="stylesheet" href="index.css">
 </head>
-<body onload="fixFooter()" onresize="fixFooter()">
-  <div class="container main">
-    <center>
-      <h1 class="title">mau.lu</h1>
-      <div class="card-container">
+<body>
+  <main>
+    <h1>mau.lu</h1>
+    <div class="card-container">
       <div class="alert alert-danger errormsg hidden-xs-up" id="errormsg"></div>
-        <div class="card card-block">
-          <form class="form-group input-div" action="#" id="main-input">
-            <input type="text" class="form-control url-input" autofocus id="inputURL" placeholder="Enter URL or search query"><br/>
-            <input type="text" class="form-control short-input" autofocus id="shortURL" placeholder="Requested short URL key">
-            <br>
-            <div class="pull-xs-right input-buttons">
-              <span class="hidden-sm-down"><input type="checkbox" id="html"><span class="html-cb">HTML Redirect</span></span>
-              <button type="button" class="btn btn-other" onClick="unshorten()">Unshorten</button>
-              <button type="button" class="btn btn-other" onClick="ddg()">DuckDuckGo</button>
-              <button type="button" class="btn btn-other" onClick="google()">Google</button>
-              <button type="submit" class="btn btn-shorten" onClick="shorten()">Shorten</button>
-            </div>
-          </form>
-        </div>
+      <div class="card card-block">
+        <form class="form-group input-div" action="#" id="main-input">
+          <input type="text" class="form-control url-input" autofocus id="inputURL" placeholder="Enter URL or search query"><br/>
+          <input type="text" class="form-control short-input" autofocus id="shortURL" placeholder="Requested short URL key">
+          <br>
+          <div class="pull-xs-right input-buttons">
+            <span class="hidden-sm-down">
+              <input type="checkbox" id="html">
+              <label for="html" class="html-cb">HTML Redirect</label>
+            </span>
+            <button type="button" class="btn btn-other" onClick="unshorten()">Unshorten</button>
+            <button type="button" class="btn btn-other" onClick="ddg()">DuckDuckGo</button>
+            <button type="button" class="btn btn-other" onClick="google()">Google</button>
+            <button type="submit" class="btn btn-shorten" onClick="shorten()">Shorten</button>
+          </div>
+        </form>
       </div>
+    </div>
 
-      <h2>Description</h2>
-      <p class="description">
-        mau.lu is the frontend for the official instance of <a href="https://github.com/tulir/maulu">mau\Lu</a>. mau\Lu is a simple URL shortening backend that supports custom short URLs and things like creating and shortening <a href="http://lmgtfy.com/">LMGTFY</a> links easily.<br>
-        Unshortening is just as easy as shortening: simply paste the short URL and press unshorten.<br>
-        Please note that anyone can shorten links here. I'm not responsible for the targets of mau.lu short URLs.<br>
-        <span class="hidden-sm-down">If you want to disable previews of short URLs in chat apps, use the HTML redirect option.</span>
-      </p>
-      <br><br>
-    </center>
-  </div>
-  
-  {{.Include "footer.html"}}
+    <h2>Description</h2>
+    <p class="description">
+      mau.lu is the frontend for the official instance of <a href="https://github.com/tulir/maulu">mau\Lu</a>.
+      mau\Lu is a simple URL shortening backend that supports
+      custom short URLs and things like creating and shortening
+      <a href="http://lmgtfy.com/">LMGTFY</a> links easily.
+      <br>
+      Unshortening is just as easy as shortening: simply paste the
+      short URL and press unshorten.
+      <br>
+      Please note that anyone can shorten links here. I'm not
+      responsible for the targets of mau.lu short URLs.
+      <br>
+      <span class="hidden-sm-down">If you want to disable previews of short URLs in chat apps, use the HTML redirect option.</span>
+    </p>
+  </main>
+  <footer>
+    <a class="foot-link" href="https://maunium.net/">Home</a>
+    <a class="foot-link" href="https://github.com/tulir">Projects</a>
+    <a class="foot-link" href="https://maunium.net/contact/">Contact</a>
+    <div style="line-height: 100%;"><br></div>
+    <a class="foot-image" href="mailto:tulir@maunium.net">
+      <img width="32" height="32" alt="Email" src="https://maunium.net/images/email.svg" onerror="this.src='https://maunium.net/images/email.png'"/>
+    </a>
+    <a class="foot-image" href="https://github.com/tulir">
+      <img width="32" height="32" alt="Github" src="https://maunium.net/images/github.svg" onerror="this.src='https://maunium.net/images/github.png'"/>
+    </a>
+    <a class="foot-image" href="https://t.me/tulir">
+      <img width="32" height="32" alt="Telegram" src="https://maunium.net/images/telegram.svg" onerror="this.src='https://maunium.net/images/telegram.png'"/>
+    </a>
+    <a class="foot-image" href="https://matrix.to/#/@tulir:maunium.net">
+      <img width="32" height="32" alt="Matrix" src="https://maunium.net/images/matrix.svg" onerror="this.src='https://maunium.net/images/matrix.png'"/>
+    </a>
+    <div style="line-height: 100%;"><br></div>
+    <div class="secondary-text">
+      Copyright © 2020 Maunium
+      - <a href="https://maunium.net/pgp">My PGP key</a>
+      - Favicon from <a class="black-alt-link" href="http://iconcreme.com/">http://iconcreme.com/</a>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script type="text/javascript" src="index.js"></script>
 </body>
 </html>
